@@ -1,0 +1,145 @@
+.hero {
+  padding: var(--spacing-3xl) 0;
+  background: linear-gradient(180deg, var(--color-gray-100) 0%, var(--color-white) 100%);
+  overflow: hidden;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-2xl);
+  align-items: center;
+}
+
+.hero-text {
+  max-width: 600px;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.1;
+}
+
+.hero-description {
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
+  color: var(--color-gray-600);
+  margin-bottom: var(--spacing-xl);
+  line-height: 1.7;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.hero-button {
+  padding: var(--spacing-md) var(--spacing-xl);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 1.125rem;
+  transition: all var(--transition-base);
+}
+
+.hero-button.primary {
+  background: var(--gradient-primary);
+  color: white;
+  box-shadow: var(--shadow-md);
+}
+
+.hero-button.primary:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.hero-button.secondary {
+  background: white;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.hero-button.secondary:hover {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+.hero-visual {
+  position: relative;
+  height: 400px;
+  display: none;
+}
+
+.hero-gradient-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.5;
+  animation: float 6s ease-in-out infinite;
+}
+
+.blob-1 {
+  width: 300px;
+  height: 300px;
+  background: var(--color-primary);
+  top: 0;
+  left: 0;
+  animation-delay: 0s;
+}
+
+.blob-2 {
+  width: 250px;
+  height: 250px;
+  background: var(--color-secondary);
+  top: 50%;
+  right: 10%;
+  animation-delay: 2s;
+}
+
+.blob-3 {
+  width: 200px;
+  height: 200px;
+  background: var(--color-accent);
+  bottom: 0;
+  left: 40%;
+  animation-delay: 4s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-30px) scale(1.05);
+  }
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: var(--spacing-3xl) 0 var(--spacing-2xl);
+  }
+  
+  .hero-content {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .hero-visual {
+    display: block;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: var(--spacing-2xl) 0;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+  }
+  
+  .hero-button {
+    width: 100%;
+    text-align: center;
+  }
+}
